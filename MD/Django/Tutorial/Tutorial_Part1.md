@@ -86,7 +86,7 @@ def index(request):
 	return HttpResponse("Hello, World")
 ```
 
---
+---
 view를 호출하려면 이와 연결된 URL이 있어야 한다.  
 이를 위해 URLconf가 사용 된다.  
 `polls/urls.py` 파일을 열어 코드 입력/확인
@@ -100,7 +100,7 @@ urlpatterns = [
 	url(r'^$', views.index, name='index'),
 ]
 ```
---
+---
 project 최상단의 URLconf에서 `polls/urls` 모듈을 바라보도록 설정  
 `mysite/urls.py` 파일 오픈  
 다음과 같은 코드 추가
