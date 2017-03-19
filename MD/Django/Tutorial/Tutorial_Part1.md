@@ -120,7 +120,7 @@ urlpatterns = [
 * Django가 `include()`를 만나게 되면, 그 지점까지 일치하는 URL의 부분을 잘라내고, 남은 부분을 후속 처리하기 위해 include 된 URLconf로 전달
 * `/polls/some/method` 를 요청 받으면, `some/method`가 `polls/urls.py`의 URLconf로 넘어간다.
 
---
+---
 
 * index view가 URLconf에 잘 연결되었는지 확인
 * `python manage.py runserver`  
