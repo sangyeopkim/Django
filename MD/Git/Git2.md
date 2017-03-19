@@ -1,7 +1,7 @@
-##Git 2
+# Git 2
 
 
-###Terminal 에서 Git 작업
+## Terminal 에서 Git 작업
 * 해당 경로로 이동 -> cd 경로 이름
 * 경로 뒤로 가기 -> cd
 * 폴더 생성 -> mkdir 폴더명
@@ -28,7 +28,7 @@
 * git reset --hard ORIG_HEAD -> reset 잘못한 시점 전으로 되돌림
 
 
-###Terminal Vi 명령어
+## Terminal Vi 명령어
 * dd -> 한 줄 지우기
 * u -> Ctrl + z
 * yy -> 복사
@@ -37,7 +37,7 @@
 * :q! -> 저장 안하고 나가기
 
 
-###Gitignore -> 쓰레기 파일들을 Git 에서 무시
+## Gitignore -> 쓰레기 파일들을 Git 에서 무시
 * gitignore.io
 * vi .gitignore
 * 사용하는 Tool 전부 입력 (giyiynotr.io 에서 복사 붙여넣기)
@@ -47,7 +47,7 @@
 * 복사한 부분 붙여넣기
 * Gitignore 은 최초 init 만들자 마자 생성해야함 -> 협업을 위해
 
-### Git 응용
+## Git 응용
 1. 폴더 생성 -> 작업 공간 확보
 2. git init -> Local Repository 생성
 3. git ignore -> 협업을 위해
