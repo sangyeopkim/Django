@@ -1,1 +1,1 @@
-Django 개인 공부
+# Django 개인 공부
