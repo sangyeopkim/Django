@@ -1,4 +1,10 @@
 reated by https://www.gitignore.io/api/python,pycharm,django
+# Project custom
+.idea/
+media/
+
+# Config folders
+.conf/
 
 ### Django ###
 *.log
