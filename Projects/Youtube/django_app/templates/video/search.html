@@ -13,5 +13,17 @@
     <button type="submit">Search!</button>
 </form>
 
+<ul>
+    <li>
+        총 {{ videos.count }}개
+    </li>
+    {% for video in videos %}
+    <li>
+        <a href="https://www.youtube.com/watch?v={{ video.youtube_id }}">{{ video.title }}</a>
+        <p>{{ video.description }}</p>
+        <p>{{ video.published_date }}</p>
+    </li>
+    {% endfor %}
+</ul>
 </body>
 </html>
