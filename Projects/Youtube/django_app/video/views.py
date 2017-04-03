@@ -26,25 +26,32 @@ def get_search_list_from_youtube(keyword):
 
 
 def search(request):
-    if request.method == 'POST':
-        keyword = request.POST['keyword']
+    # 검색결과를 담을 리스트
+    videos = []
+    # GET parameters에 keyword값이 왔을때만 검색결과에 내용이 추가됨
+    keyword = request.GET.get('keyword', '').strip()
+    if keyword != '':
         items = get_search_list_from_youtube(keyword)
+
         for item in items:
+            published_date_str = item['snippet']['publishedAt']
+
+            # 실제로 사용할 데이터
             youtube_id = item['id']['videoId']
             title = item['snippet']['title']
             description = item['snippet']['description']
-            published_date_str = item['snippet']['publishedAt']
             published_date = parse(published_date_str)
-            defaults = {
+            url_thumbnail = item['snippet']['thumbnails']['high']['url']
+
+            # 현재 item을 dict로 정리
+            cur_item_dict = {
                 'title': title,
                 'description': description,
-                'published_date': published_date
+                'published_date': published_date,
+                'youtube_id': youtube_id,
+                'url_thumbnail': url_thumbnail,
             }
-            Video.objects.get_or_create(
-                youtube_id=youtube_id,
-                defaults=defaults
-            )
-    videos = Video.objects.all()
+            videos.append(cur_item_dict)
     context = {
         'videos': videos,
     }
