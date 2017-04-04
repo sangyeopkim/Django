@@ -10,11 +10,9 @@ def get_search_list_from_google(keyword):
     google_map_api_key = get_settings()['google_map']['API_KEY']
     params = {
         'key': google_map_api_key,
-        'location': '-33.8670522,151.1957362',
-        'radius': 500,
-        'types': keyword,
+        'query': keyword,
     }
-    r = requests.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?parameters', params=params)
+    r = requests.get('https://maps.googleapis.com/maps/api/place/textsearch/json?parameters', params=params)
     result = r.text
     result_dict = json.loads(result)
 
@@ -30,10 +28,10 @@ def search(request):
         results = get_search_list_from_google(keyword)
 
         for result in results:
-            name = result['name']
+            formatted_address = result['formatted_address']
 
             cur_item_dict = {
-                'name': name,
+                'formatted_address': formatted_address,
             }
             places.append(cur_item_dict)
     context = {
