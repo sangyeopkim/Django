@@ -77,7 +77,7 @@ def search(request):
 
 
 @login_required
-def add_bookmark(request):
+def bookmark_add(request):
     if request.method == 'POST':
         title = request.POST['title']
         description = request.POST['description']
@@ -98,3 +98,10 @@ def add_bookmark(request):
         request.user.bookmark_videos.add(video)
         return redirect(prev_path)
 
+@login_required
+def bookmark_list(request):
+    bookmarks = request.user.bookmark_videos.all()
+    context = {
+        'bookmarks': bookmarks,
+    }
+    return render(request, 'video/bookmark_list.html', context)
